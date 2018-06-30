@@ -1,24 +1,33 @@
-const db = require("./newDb");
+const db = require("./newNewNewDb");
 const fs = require("fs");
 const path = require("path");
 
-let newDb = db.map(item => {
-  return {
-    movilizador: item.movilizador,
-    voters: item.voters.map(voter => {
-      return { name: voter, confirmed: false };
-    })
-  };
-});
+function toId(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .join("_");
+}
 
-fs.writeFile(
-  path.join(__dirname, "newNewDb.json"),
-  JSON.stringify(newDb),
-  err => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Success!");
-    }
-  }
+let data = JSON.stringify(
+  db.map(item => {
+    let { movilizador, voters } = item;
+    let newMov = toId(
+      movilizador.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    );
+    return {
+      [newMov]: {
+        movilizador,
+        voters
+      }
+    };
+  })
 );
+
+fs.writeFile(path.join(__dirname, "newNewNewDb.json"), data, err => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Success!");
+  }
+});
