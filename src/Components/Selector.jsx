@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import db from "../db/newDb.json";
+import db from "../db/newNewNewDb.json";
 
 class Selector extends Component {
   constructor() {
     super();
     this.state = {
-      value: 0
+      value: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,14 +16,27 @@ class Selector extends Component {
     this.setState({ value: event.target.value });
   }
   handleSubmit() {
-    navigate("/votantes/" + this.state.value);
+    if (!this.state.value) {
+      alert("Por favor elige tu nombre");
+    } else {
+      navigate("/votantes/" + this.state.value);
+    }
   }
   render() {
     return (
       <div className="Selector">
         Elige tu nombre:{" "}
         <select value={this.state.value} onChange={this.handleChange}>
-          {db.map((obj, i) => <option value={i}>{obj.movilizador}</option>)}
+          <option selected>Nombre</option>
+          {db.map((obj, i) => {
+            let id = Object.keys(obj)[0];
+            let { movilizador } = obj[id];
+            return (
+              <option value={id} key={id}>
+                {movilizador}
+              </option>
+            );
+          })}
         </select>
         <button type="submit" onClick={() => this.handleSubmit()}>
           Entrar
