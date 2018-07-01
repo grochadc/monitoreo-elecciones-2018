@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import axios from "axios";
-import Selector from "./Components/Selector";
+import Selector from "./Components/Containers/Selector";
 import Main from "./Components/Main";
 import Clave from "./Components/Clave";
 import Dashboard from "./Components/Admin/Dashboard";

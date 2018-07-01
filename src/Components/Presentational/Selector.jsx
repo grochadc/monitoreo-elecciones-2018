@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { navigate, Link } from "@reach/router";
-import db from "../db/newNewNewDb.json";
 
 class Selector extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       value: null
     };
@@ -28,7 +27,7 @@ class Selector extends Component {
         Elige tu nombre:{" "}
         <select value={this.state.value} onChange={this.handleChange}>
           <option selected>Nombre</option>
-          {db.map((obj, i) => {
+          {this.props.movilizadores.map((obj, i) => {
             let id = Object.keys(obj)[0];
             let { movilizador } = obj[id];
             return (
@@ -41,7 +40,7 @@ class Selector extends Component {
         <button type="submit" onClick={() => this.handleSubmit()}>
           Entrar
         </button>
-<Link to="/huitzilopochtli ">admin</Link>
+        <Link to="/huitzilopochtli ">admin</Link>
       </div>
     );
   }

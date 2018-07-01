@@ -22,7 +22,6 @@ class Progreso extends Component {
     };
   }
   render() {
-    let { movilizadores } = this.props;
     return (
       <div>
         <table>
