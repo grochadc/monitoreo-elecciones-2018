@@ -25,14 +25,10 @@ movilizadores.map(movilizador => {
   objects.push(movilizadorObject);
 });
 
-fs.writeFile(
-  path.join(__dirname, "newDb.json"),
-  JSON.stringify(objects),
-  err => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Success!");
-    }
+fs.writeFile(path.join(__dirname, "db0.json"), JSON.stringify(objects), err => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Success!");
   }
-);
+});

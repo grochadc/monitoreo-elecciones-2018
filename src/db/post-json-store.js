@@ -1,5 +1,5 @@
 const axios = require("axios");
-const db = require("./newNewNewDb");
+const db = require("./db2.json");
 
 db.forEach(data => {
   let key = Object.keys(data)[0];

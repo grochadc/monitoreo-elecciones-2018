@@ -1,4 +1,4 @@
-const db = require("./newNewNewDb");
+const db = require("./db1");
 const fs = require("fs");
 const path = require("path");
 
@@ -24,7 +24,7 @@ let data = JSON.stringify(
   })
 );
 
-fs.writeFile(path.join(__dirname, "newNewNewDb.json"), data, err => {
+fs.writeFile(path.join(__dirname, "db2.json"), data, err => {
   if (err) {
     console.log(err);
   } else {
