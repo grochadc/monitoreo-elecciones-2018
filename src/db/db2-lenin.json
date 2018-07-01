@@ -1,0 +1,99 @@
+[
+  {
+    "lenin_aceves_d�az_": {
+      "movilizador": "Lenin Aceves D�az ",
+      "voters": [
+        {
+          "name": "G�mez - Antonio",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.138Z",
+          "id": "g�mez_-_antonio"
+        },
+        {
+          "name": "Quezada - Felicitas",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "quezada_-_felicitas"
+        },
+        {
+          "name": "D�az - Jes�s",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "d�az_-_jes�s"
+        },
+        {
+          "name": "Madrue�o - Juan",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "madrue�o_-_juan"
+        },
+        {
+          "name": "D�az - Julio C�sar",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "d�az_-_julio_c�sar"
+        },
+        {
+          "name": "Aceves - �scar",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "aceves_-_�scar"
+        },
+        {
+          "name": "D�vila - Paola",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "d�vila_-_paola"
+        },
+        {
+          "name": "Apodaca - Teresa",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "apodaca_-_teresa"
+        },
+        {
+          "name": "Garc�a Partida Ariana",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "garc�a_partida_ariana"
+        },
+        {
+          "name": "Arizabalo - Ariana",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "arizabalo_-_ariana"
+        },
+        {
+          "name": "Ignacio - Guadalupe",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "ignacio_-_guadalupe"
+        },
+        {
+          "name": "Zepeda - J. Antonio",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "zepeda_-_j._antonio"
+        },
+        {
+          "name": "Aveces D�az Lenin",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "aveces_d�az_lenin"
+        },
+        {
+          "name": "Aceves Diaz Lenin",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "aceves_diaz_lenin"
+        },
+        {
+          "name": "Zepeda - Oswaldo",
+          "confirmed": false,
+          "lastUpdated": "2018-07-01T19:44:51.141Z",
+          "id": "zepeda_-_oswaldo"
+        }
+      ]
+    }
+  }
+]

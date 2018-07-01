@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const voters = require("./db.json");
+const voters = require("./db-lenin.json");
 
 let movilizadores = [];
 
