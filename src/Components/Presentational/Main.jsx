@@ -58,13 +58,13 @@ class Main extends Component {
       this.props.movilizador
     }/voters`;
     axios.put(url, [...this.state.voters]);
-    alert("Informacion Guardada");
-    console.log({
+    let updatedObj = {
       voters: this.state.voters,
       id: this.props.movilizador,
       lastUpdate: new Date(),
       movilizador: toCapital(this.props.movilizador)
-    });
+    };
+    alert("Informacion Guardada");
   }
   render() {
     return (

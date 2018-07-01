@@ -55,8 +55,13 @@ class Main extends Component {
   handleClick() {
     let url = `https://www.jsonstore.io/28b253e68a554f6305fbf89046cce7deaafbb553fddbab11116dc7bb04a149f3/movilizadores/${
       this.props.movilizador
-    }/voters`;
-    axios.put(url, [...this.state.voters]);
+    }`;
+    let updated = {
+      movilizador: toCapital(this.props.movilizador),
+      voters: this.state.voters,
+      lastUpdated: new Date()
+    };
+    axios.put(url, updated);
     alert("Informacion Guardada");
   }
   render() {

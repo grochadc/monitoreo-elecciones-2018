@@ -25,9 +25,11 @@ class Progreso extends Component {
     return (
       <div>
         <table>
-          <th>
-            <td>Movilizador</td>
-          </th>
+          <tr>
+            <th>Movilizador</th>
+            <th style={{ paddingRight: "20px" }}>Progreso</th>
+            <th>Hora</th>
+          </tr>
           {this.props.movilizadores.map(item => {
             let { movilizador, voters } = item;
             let id = toId(movilizador)
@@ -37,12 +39,22 @@ class Progreso extends Component {
             return (
               <tr key={id}>
                 <td>
-                  <Link to={`movilizadores/${id}`}>{movilizador}</Link> [{
+                  <Link to={`movilizadores/${id}`}>{movilizador}</Link>
+                </td>
+                <td>
+                  [{
                     voters.filter(voter => {
                       return voter.confirmed;
                     }).length
                   }{" "}
-                  / {voters.length}]
+                  / {voters.length}]{" "}
+                </td>
+                <td>
+                  {item.lastUpdated
+                    ? new Date(item.lastUpdated).getHours().toString() +
+                      ":" +
+                      new Date(item.lastUpdated).getMinutes().toString()
+                    : null}
                 </td>
               </tr>
             );

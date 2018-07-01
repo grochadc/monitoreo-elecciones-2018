@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "@reach/router";
 import { toCapital } from "../../lib";
 import VoterListR from "./Presentational/VoterListR";
 
@@ -28,6 +29,7 @@ class Movilizador extends Component {
   render() {
     return (
       <div>
+        <Link to="/huitzilopochtli">Admin</Link>
         <h1>{toCapital(this.props.id)}</h1>
         <VoterListR voters={this.state.voters} />
       </div>
