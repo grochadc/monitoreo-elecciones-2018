@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "@reach/router";
+import { toId } from "../../../lib";
 
 class Progreso extends Component {
   constructor() {
@@ -8,12 +8,16 @@ class Progreso extends Component {
     this.state = {
       movilizadores: [
         {
-          name: "Adriana Garcia",
+          movilizador: "Adriana Garcia",
           id: "adriana_garcia",
           lastUpdated: new Date(),
           completed: [4, 20]
         },
-        { name: "Ana Elizabeth", lastUpdated: new Date(), completed: [9, 14] }
+        {
+          movilizador: "Ana Elizabeth",
+          lastUpdated: new Date(),
+          completed: [9, 14]
+        }
       ]
     };
   }
@@ -23,24 +27,17 @@ class Progreso extends Component {
         <table>
           <th>
             <td>Movilizador</td>
-            <td>Completados</td>
-            <td>Hora</td>
           </th>
-          {this.state.movilizadores.map(movilizador => {
-            let { name, lastUpdated, completed, id } = movilizador;
+          {this.props.movilizadores.map(item => {
+            let { movilizador, lastUpdated } = item;
+            let id = toId(movilizador)
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "");
 
             return (
               <tr key={id}>
                 <td>
-                  <Link to={`movilizadores/${id}`}>{name}</Link>
-                </td>
-                <td>
-                  [{completed[0]} / {completed[1]}]
-                </td>
-                <td>
-                  {lastUpdated.getHours().toString()}:{lastUpdated
-                    .getMinutes()
-                    .toString()}
+                  <Link to={`movilizadores/${id}`}>{movilizador}</Link>
                 </td>
               </tr>
             );

@@ -19,10 +19,8 @@ class App extends Component {
     axios(
       "https://www.jsonstore.io/28b253e68a554f6305fbf89046cce7deaafbb553fddbab11116dc7bb04a149f3/movilizadores/"
     ).then(({ data }) => {
-      let arr = Object.keys(data.result);
-      this.setState({
-        movilizadores: arr
-      });
+      let db = data.result;
+      that.props.setMovilizadores(db);
     });
   }
   render() {
