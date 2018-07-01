@@ -41,7 +41,7 @@ class Selector extends Component {
         <button type="submit" onClick={() => this.handleSubmit()}>
           Entrar
         </button>
-<Link to=“huitzilopochtli”>admin</Link>
+<Link to=‘/huitzilopochtli’>admin</Link>
       </div>
     );
   }
