@@ -29,7 +29,7 @@ class Progreso extends Component {
             <td>Movilizador</td>
           </th>
           {this.props.movilizadores.map(item => {
-            let { movilizador, lastUpdated } = item;
+            let { movilizador, voters } = item;
             let id = toId(movilizador)
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "");
@@ -37,7 +37,12 @@ class Progreso extends Component {
             return (
               <tr key={id}>
                 <td>
-                  <Link to={`movilizadores/${id}`}>{movilizador}</Link>
+                  <Link to={`movilizadores/${id}`}>{movilizador}</Link> [{
+                    voters.filter(voter => {
+                      return voter.confirmed;
+                    }).length
+                  }{" "}
+                  / {voters.length}]
                 </td>
               </tr>
             );
