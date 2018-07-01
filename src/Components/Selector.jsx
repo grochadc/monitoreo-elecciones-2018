@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 import db from "../db/newNewNewDb.json";
 
 class Selector extends Component {
@@ -41,6 +41,7 @@ class Selector extends Component {
         <button type="submit" onClick={() => this.handleSubmit()}>
           Entrar
         </button>
+<Link to=“huitzilopochtli”>admin</Link>
       </div>
     );
   }
