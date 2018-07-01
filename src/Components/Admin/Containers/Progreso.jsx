@@ -3,7 +3,13 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   let newMov = Object.keys(state.movilizadores).map(key => {
-    return state.movilizadores[key];
+    let movilizadoresObj = state.movilizadores[key];
+    let movilizadoresWithId = {
+      ...movilizadoresObj,
+      movilizador_id: key
+    };
+
+    return movilizadoresWithId;
   });
   return {
     movilizadores: newMov

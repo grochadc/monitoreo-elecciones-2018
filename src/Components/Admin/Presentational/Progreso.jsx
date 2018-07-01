@@ -22,43 +22,51 @@ class Progreso extends Component {
     };
   }
   render() {
+    let { movilizadores } = this.props;
     return (
       <div>
         <table>
-          <tr>
-            <th>Movilizador</th>
-            <th style={{ paddingRight: "20px" }}>Progreso</th>
-            <th>Hora</th>
-          </tr>
-          {this.props.movilizadores.map(item => {
-            let { movilizador, voters } = item;
-            let id = toId(movilizador)
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "");
+          <thead>
+            <tr>
+              <th>Movilizador</th>
+              <th style={{ paddingRight: "20px" }}>Progreso</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.movilizadores.map((item, i) => {
+              let { movilizador, voters, movilizador_id } = item;
+              console.log(movilizador_id);
+              let id = toId(movilizador)
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
 
-            return (
-              <tr key={id}>
-                <td>
-                  <Link to={`movilizadores/${id}`}>{movilizador}</Link>
-                </td>
-                <td>
-                  [{
-                    voters.filter(voter => {
-                      return voter.confirmed;
-                    }).length
-                  }{" "}
-                  / {voters.length}]{" "}
-                </td>
-                <td>
-                  {item.lastUpdated
-                    ? new Date(item.lastUpdated).getHours().toString() +
-                      ":" +
-                      new Date(item.lastUpdated).getMinutes().toString()
-                    : null}
-                </td>
-              </tr>
-            );
-          })}
+              return (
+                <tr key={id}>
+                  <td>
+                    <Link to={`movilizadores/${movilizador_id}`}>
+                      {movilizador}
+                    </Link>
+                  </td>
+                  <td>
+                    [{
+                      voters.filter(voter => {
+                        return voter.confirmed;
+                      }).length
+                    }{" "}
+                    / {voters.length}]{" "}
+                  </td>
+                  <td>
+                    {item.lastUpdated
+                      ? new Date(item.lastUpdated).getHours().toString() +
+                        ":" +
+                        new Date(item.lastUpdated).getMinutes().toString()
+                      : null}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );
