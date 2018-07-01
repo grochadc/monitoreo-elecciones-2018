@@ -3,24 +3,6 @@ import { Link } from "@reach/router";
 import { toId } from "../../../lib";
 
 class Progreso extends Component {
-  constructor() {
-    super();
-    this.state = {
-      movilizadores: [
-        {
-          movilizador: "Adriana Garcia",
-          id: "adriana_garcia",
-          lastUpdated: new Date(),
-          completed: [4, 20]
-        },
-        {
-          movilizador: "Ana Elizabeth",
-          lastUpdated: new Date(),
-          completed: [9, 14]
-        }
-      ]
-    };
-  }
   render() {
     return (
       <div>
@@ -35,11 +17,15 @@ class Progreso extends Component {
           <tbody>
             {this.props.movilizadores.map((item, i) => {
               let { movilizador, voters, movilizador_id } = item;
-              console.log(movilizador_id);
+              let confirmed = voters.filter(voter => {
+                return voter.confirmed;
+              }).length;
+              let total = voters.length;
+              let finished = Boolean(confirmed === total);
               let id = toId(movilizador)
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, "");
-
+              this.finalTotal += total;
               return (
                 <tr key={id}>
                   <td>
@@ -48,12 +34,9 @@ class Progreso extends Component {
                     </Link>
                   </td>
                   <td>
-                    [{
-                      voters.filter(voter => {
-                        return voter.confirmed;
-                      }).length
-                    }{" "}
-                    / {voters.length}]{" "}
+                    <span style={{ color: finished ? "green" : "red" }}>
+                      [{confirmed} / {total}]
+                    </span>{" "}
                   </td>
                   <td>
                     {item.lastUpdated
