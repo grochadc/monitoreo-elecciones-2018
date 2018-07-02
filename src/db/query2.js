@@ -24,7 +24,7 @@ let data = JSON.stringify(
   })
 );
 
-fs.writeFile(path.join(__dirname, "db2-lenin.json"), data, err => {
+fs.writeFile(path.join(__dirname, "db2-elia.json"), data, err => {
   if (err) {
     console.log(err);
   } else {
